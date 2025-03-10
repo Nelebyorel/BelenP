@@ -1,5 +1,27 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* S'assure que la page occupe toute la hauteur de la fenêtre */
+}
+
+main {
+  flex-grow: 1; /* Permet au contenu principal de prendre toute la place disponible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -30,6 +52,7 @@ body {
   min-height: 100vh;
 }
 
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -59,9 +82,8 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -75,5 +97,36 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le scroll horizontal */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Assure une hauteur minimale égale à la fenêtre */
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px; /* Empêche le contenu d’être trop large */
+  margin: auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%; /* Prend plus d’espace sur petits écrans */
   }
 }
