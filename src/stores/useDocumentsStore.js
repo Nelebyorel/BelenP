@@ -9,7 +9,7 @@ export const useDocumentsStore = defineStore("documents", {
     async fetchDocuments() {
       const { data, error } = await supabase
         .from("documents")
-        .select("id, année, matière, title, url"); // On sélectionne bien les colonnes nécessaires
+        .select("id, annee, matiere, title, url"); // On sélectionne bien les colonnes nécessaires
 
       if (error) {
         console.error("Erreur lors de la récupération des documents :", error);

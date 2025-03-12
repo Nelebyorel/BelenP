@@ -6,9 +6,9 @@
       </header>
       
       <!-- Diaporama d'images -->
-      <div class="slideshow">
-        <img :src="images[currentImage]" alt="Illustration" />
-      </div>
+  <div class="slider-container">
+    <img :src="images[currentImage]" alt="Image diaporama" />
+  </div>
   
       <!-- Brève description -->
       <section class="description">
@@ -24,6 +24,8 @@
         <router-link to="/annales" class="nav-button">Annales et ressources</router-link>
       </nav>
     </div>
+
+
   </template>
  
  
@@ -31,9 +33,9 @@
   import { ref, onMounted } from 'vue';
   
   const images = ref([
-    '/7d1fb808-4b25-4187-b561-2ca193f4a339.JPG',
-    '/IMG_2101.jpg',
-    '/IMG_6955.HEIC',
+    '/licence-science-sante.mobile.jpg',
+    '/posters-design-plat-concept-moderne-pour-les-soins-de-sante-et-l-39-aide-medicale.jpg.jpg',
+    '/quels-sont-les-reseaux-dentraide-etudiants-heyme.jpg',
     ]);
   
   const currentImage = ref(0);
@@ -96,5 +98,22 @@
   .nav-button:hover {
     background-color: #2980b9;
   }
+
+  .slider-container {
+  width: 100%;
+  max-width: 600px; /* Ajuste la largeur selon ton design */
+  height: 400px; /* Hauteur fixe */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Centre horizontalement */
+}
+
+.slider-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplit la zone tout en gardant un bon rendu */
+}
   </style>
   

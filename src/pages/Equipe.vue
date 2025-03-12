@@ -20,29 +20,29 @@ export default {
     return {
       enseignants: [
         {
-          nom: "Dr. Marie Dupont",
-          role: "Responsable pédagogique",
-          bio: "Spécialiste en physiologie et enseignante-chercheuse en biologie médicale.",
+          nom: "Pr. Fabien Van Coppenolle",
+          role: "Responsable pédagogique L2",
+          bio: "Spécialiste en physiologie",
           photo: "/images/marie-dupont.jpg",
           lien: "https://www.universite-exemple.fr/mdupont"
         },
         {
-          nom: "Pr. Jean Martin",
-          role: "Professeur de neurosciences",
-          bio: "Expert en neurosciences et en cognition humaine.",
+          nom: "Pr. Claire Gaillard",
+          role: "Professeur de Dispositifs médicaux",
+          bio: "Expert cadre légal des dispositifs médicaux.",
           photo: "/images/jean-martin.jpg",
           lien: "https://www.universite-exemple.fr/jmartin"
         },
         {
-          nom: "Dr. Claire Bernard",
-          role: "Enseignante en santé publique",
-          bio: "Travaille sur les politiques de santé et l'épidémiologie.",
+          nom: "Dr. Clement Viricel",
+          role: "Enseignante en Data Science",
+          bio: "Travaille en programation et gestion de data science",
           photo: "/images/claire-bernard.jpg"
         },
         {
-          nom: "Dr. Pierre Lefevre",
-          role: "Intervenant en biochimie",
-          bio: "Chercheur en biochimie appliquée à la médecine.",
+          nom: "Dr. Claire Perrin",
+          role: "Responsable pédagogique L3",
+          bio: "Santé publique et politiques publiques",
           photo: "/images/pierre-lefevre.jpg"
         }
       ]
