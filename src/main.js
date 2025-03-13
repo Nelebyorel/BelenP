@@ -42,4 +42,18 @@ async function testConnection() {
   }
 }
 
+const fetchEnseignants = async () => {
+  const { data, error } = await supabase.from("enseignants").select("*");
+  
+  console.log("Données récupérées :", data);
+  console.log("Erreur éventuelle :", error);
+  
+  if (error) {
+    console.error("Erreur de chargement des enseignants:", error);
+  } else {
+    enseignants.value = data;
+  }
+};
+
+
 testConnection();

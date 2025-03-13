@@ -1,3 +1,4 @@
+<!--
 <template>
     <a :href="lien" target="_blank">
       <button class="btn">{{ texte }}</button>
@@ -34,4 +35,35 @@
     background-color: #0056b3;
   }
   </style>
-  
+-->
+<template>
+  <a v-if="lien" :href="lien" target="_blank" class="btn">
+    <slot></slot>
+  </a>
+</template>
+
+<script setup>
+defineProps({
+  lien: {
+    type: String,
+    required: true
+  }
+});
+</script>
+
+<style scoped>
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #2980b9;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #1a66a3;
+}
+</style>

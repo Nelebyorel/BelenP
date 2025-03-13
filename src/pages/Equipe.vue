@@ -8,47 +8,34 @@
         <h2>{{ enseignant.nom }}</h2>
         <h3>{{ enseignant.role }}</h3>
         <p>{{ enseignant.bio }}</p>
-        <a v-if="enseignant.lien" :href="enseignant.lien" target="_blank" class="lien-profil">📄 En savoir plus</a>
+        <Bouton v-if="enseignant.lien" :lien="enseignant.lien">
+          📄 En savoir plus
+        </Bouton>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      enseignants: [
-        {
-          nom: "Pr. Fabien Van Coppenolle",
-          role: "Responsable pédagogique L2",
-          bio: "Spécialiste en physiologie",
-          photo: "/images/marie-dupont.jpg",
-          lien: "https://www.universite-exemple.fr/mdupont"
-        },
-        {
-          nom: "Pr. Claire Gaillard",
-          role: "Professeur de Dispositifs médicaux",
-          bio: "Expert cadre légal des dispositifs médicaux.",
-          photo: "/images/jean-martin.jpg",
-          lien: "https://www.universite-exemple.fr/jmartin"
-        },
-        {
-          nom: "Dr. Clement Viricel",
-          role: "Enseignante en Data Science",
-          bio: "Travaille en programation et gestion de data science",
-          photo: "/images/claire-bernard.jpg"
-        },
-        {
-          nom: "Dr. Claire Perrin",
-          role: "Responsable pédagogique L3",
-          bio: "Santé publique et politiques publiques",
-          photo: "/images/pierre-lefevre.jpg"
-        }
-      ]
-    };
+<script setup>
+import { ref, onMounted } from "vue";
+import { supabase } from "/src/supabase";
+import Bouton from "/src/components/Bouton.vue"; // Correction ici
+
+const enseignants = ref([]);
+
+const fetchEnseignants = async () => {
+  const { data, error } = await supabase.from("enseignants").select("*");
+  if (error) {
+    console.error("Erreur de chargement des enseignants:", error);
+  } else {
+    enseignants.value = data;
   }
 };
+
+
+onMounted(() => {
+  fetchEnseignants();
+});
 </script>
 
 <style scoped>
