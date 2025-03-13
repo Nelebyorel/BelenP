@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted } from "vue";
 import { useDocumentsStore } from "/src/stores/useDocumentsStore";
+import Bouton from "/src/components/Bouton.vue";
 
 const documentsStore = useDocumentsStore();
 
@@ -45,7 +46,7 @@ const documentsParAnnee = computed(() => {
             <td>{{ doc.title }}</td>
             <td>
               <a :href="doc.url" target="_blank">
-                <button class="btn">📄 Ouvrir</button>
+                <Bouton :texte="`📄 Ouvrir ${doc.title} `" :lien="doc.url" />
               </a>
             </td>
           </tr>
@@ -55,6 +56,57 @@ const documentsParAnnee = computed(() => {
   </div>
 </template>
 
+<style scoped>
+.container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #333;
+  border-bottom: 2px solid #4b97e8;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #4b97e8;
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+</style>
+
+<!--
 <style scoped>
 .container {
   max-width: 800px;
@@ -96,3 +148,4 @@ th {
   background-color: #4b97e8;
 }
 </style>
+-->
