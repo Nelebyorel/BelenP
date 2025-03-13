@@ -46,7 +46,9 @@ const documentsParAnnee = computed(() => {
             <td>{{ doc.title }}</td>
             <td>
               <a :href="doc.url" target="_blank">
-                <Bouton :texte="`📄 Ouvrir ${doc.title} `" :lien="doc.url" />
+                <Bouton v-if="doc.url" :lien="doc.url">
+                  📄 Ouvrir {{ doc.title }}
+                </Bouton>
               </a>
             </td>
           </tr>
